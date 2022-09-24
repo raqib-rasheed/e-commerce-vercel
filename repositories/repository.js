@@ -1,4 +1,4 @@
-// const fs = require("fs");
+const fs = require("fs");
 const crypto = require("crypto");
 
 module.exports = class Repository {
@@ -9,9 +9,9 @@ module.exports = class Repository {
 
     this.filename = filename;
     try {
-      // fs.accessSync(this.filename);
+      fs.accessSync(this.filename);
     } catch (err) {
-      // fs.writeFileSync(this.filename, "[]");
+      fs.writeFileSync(this.filename, "[]");
     }
   }
 
@@ -26,19 +26,18 @@ module.exports = class Repository {
   }
 
   async getAll() {
-    return JSON
-      .parse
-      // await fs.promises.readFile(this.filename, {
-      //   encoding: 'utf8'
-      // })
-      ();
+    return JSON.parse(
+      await fs.promises.readFile(this.filename, {
+        encoding: "utf8",
+      })
+    );
   }
 
   async writeAll(records) {
-    // await fs.promises.writeFile(
-    //   this.filename,
-    //   JSON.stringify(records, null, 2)
-    // );
+    await fs.promises.writeFile(
+      this.filename,
+      JSON.stringify(records, null, 2)
+    );
   }
 
   randomId() {

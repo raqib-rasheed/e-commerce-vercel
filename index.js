@@ -1,10 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
-const authRouter = require("../routes/admin/auth");
-const adminProductsRouter = require("../routes/admin/products");
-const productsRouter = require("../routes/products");
-const cartsRouter = require("../routes/carts");
+const authRouter = require("./routes/admin/auth");
+const adminProductsRouter = require("./routes/admin/products");
+const productsRouter = require("./routes/products");
+const cartsRouter = require("./routes/carts");
 
 const app = (module.exports = express());
 
@@ -21,5 +21,5 @@ app.use(adminProductsRouter);
 app.use(cartsRouter);
 
 app.listen(3001, () => {
-  console.log("Listening");
+  console.log("Listening 3001");
 });
