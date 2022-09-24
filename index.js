@@ -6,7 +6,7 @@ const adminProductsRouter = require("./routes/admin/products");
 const productsRouter = require("./routes/products");
 const cartsRouter = require("./routes/carts");
 
-const app = (module.exports = express());
+const app = express();
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,3 +23,5 @@ app.use(cartsRouter);
 app.listen(3001, () => {
   console.log("Listening 3001");
 });
+
+module.exports = app;
