@@ -1,4 +1,4 @@
-const fs = require("fs");
+// const fs = require("fs");
 const crypto = require("crypto");
 
 module.exports = class Repository {
@@ -9,9 +9,9 @@ module.exports = class Repository {
 
     this.filename = filename;
     try {
-      fs.accessSync(this.filename);
+      // fs.accessSync(this.filename);
     } catch (err) {
-      fs.writeFileSync(this.filename, "[]");
+      // fs.writeFileSync(this.filename, "[]");
     }
   }
 
